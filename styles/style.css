@@ -1,16 +1,373 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-primary);
+  font-variation-settings: "wght" var(--font-weight-regular);
+  background-image: var(--bg-gradient);
+  background-size: cover;
+  background-attachment: fixed;
+  padding-block: 100px;
+}
+
+.container {
+  width: var(--container-width);
+  margin-inline: auto;
+}
+
+.header {
+  background-color: #fff;
+  border: var(--border);
+  block-size: clamp(327px, 40vh, 368px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__title {
+  font-family: var(--font-accent);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-align: center;
+}
+
+.header__subtitle {
+  display: block;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  margin-top: 20px;
+}
+
+.main {
+  margin-block-start: 100px;
+}
+
+.sprint__list,
+.main {
+  display: grid;
+  gap: 50px;
+}
+
+.sprint__list-item {
+  background-color: #fff;
+  border: var(--border);
+  font-size: 18px;
+}
+
+.sprint__heading {
+  font-variation-settings: "wght" var(--font-weight-bold);
+  font-size: 18px;
+  padding: 4px 10px;
+}
+
+.sprint__img-container {
+  position: relative;
+  max-block-size: 696px;
+}
+
+.sprint__img-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.filter-vintage::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 69, 19, 0.3),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.filter-cool::before {
+  background: linear-gradient(to bottom, rgba(0, 191, 255, 0.2), transparent);
+}
+
+.filter-warm::before {
+  background: linear-gradient(to bottom, rgba(255, 165, 0, 0.2), transparent);
+}
+
+.filter-soft::before {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4),
+    transparent 70%
+  );
+}
+
+.filter-dramatic::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+.filter-nostalgia::before {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 223, 0, 0.2),
+    rgba(139, 0, 0, 0.2)
+  );
+}
+
+.filter-multiple::before {
+  background: linear-gradient(to bottom, rgba(170, 20, 20, 0.76), transparent),
+    radial-gradient(circle at 20% 80%, rgba(21, 151, 65, 0.759), transparent 50%),
+    linear-gradient(to right, rgba(0, 255, 0, 0.1), transparent);
+}
+
+.sprint__img {
+  width: 100%;
+  height: 100%;
+  border-block: var(--border);
+}
+
+.sprint__img-container::after {
+  /* content: "</HTML>"; */
+  content: "прокрастинация";
+  text-transform: uppercase;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: hard-light;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  z-index: 2;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .sprint__img-container::after {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
+}
+
+.sprint__img {
+  width: 100%;
+  height: 100%;
+}
+
+.sprint__content {
+  padding: 25px;
+  display: grid;
+  gap: 25px;
+}
+
+.sprint__text {
+  line-height: 21px;
+}
+
+.sprint_btns {
+  min-inline-size: 169px;
+  max-block-size: 38px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.card__like-button {
+  min-block-size: 38px;
+  min-inline-size: 130px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  min-block-size: 38px;
+  min-inline-size: 38px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.card__icon-button:focus-visible {
+  transition: 0.3s ease;
+  border: var(--border);
+}
+
+.button__text {
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.btn {
+  background-color: var(--button-bg-color);
+  border: var(--border);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--font-accent);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-bg-color);
+  transform: translateX(-100%) translateY(-10%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn:focus,
+.btn:focus-visible,
+.card__icon-button:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: 2px 2px 0 #000;
+  transition: 0.3s ease;
+}
+
+.save__btn {
+  min-block-size: 55px;
+  min-inline-size: 335px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.save__btn svg {
+  block-size: 21px;
+  inline-size: 21px;
+  fill: currentColor;
+}
+
+.save-dialog {
+  min-inline-size: clamp(341px, 90vw, 353px);
+  block-size: 191px;
+  border: var(--border);
+  padding: 30px;
+}
+
+.dialog__content {
+  display: grid;
+  grid-template-columns: min-content 234px;
+  grid-template-rows: 63px 38px;
+  justify-content: space-between;
+  align-content: space-between;
+  place-items: center;
+  block-size: 100%;
+}
+
+.dialog__content-svg {
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+.dialog__content-text {
+  font-size: 14px;
+  font-family: var(--font-accent);
+  max-inline-size: 234px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.save-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.ok-btn {
+  inline-size: 100%;
+  min-block-size: 38px;
+  grid-column: span 2;
+}
+
+.page:has(.save-dialog[open]) {
+  overflow: hidden;
+}
+
+.like-icon {
+  max-block-size: 36px;
+  max-inline-size: 39px;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: scaleHeart 0.3s ease-in 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: flashSparks 0.3s ease-in 0.3s;
+}
+
+.heart {
+  transform-origin: center;
+}
+
+@media (width <= 375px) {
+  .save__btn {
+    min-block-size: 84px;
+    min-inline-size: 306px;
+    flex-direction: column;
+  }
 }
