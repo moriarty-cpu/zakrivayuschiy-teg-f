@@ -100,7 +100,6 @@
 }
 
 .sprint__img-container::after {
-  /* content: "</HTML>"; */
   content: "прокрастинация";
   text-transform: uppercase;
   font-family: var(--font-accent);
