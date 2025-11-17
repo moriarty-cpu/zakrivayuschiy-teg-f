@@ -17,7 +17,7 @@
 .header {
   background-color: #fff;
   border: var(--border);
-  block-size: clamp(327px, 40vh, 368px);
+  min-block-size: 368px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,7 +100,6 @@
 }
 
 .sprint__img-container::after {
-  /* content: "</HTML>"; */
   content: "прокрастинация";
   text-transform: uppercase;
   font-family: var(--font-accent);
@@ -342,5 +341,9 @@
     min-block-size: 84px;
     min-inline-size: 306px;
     flex-direction: column;
+  }
+
+  .header {
+    min-block-size: 327px;
   }
 }
